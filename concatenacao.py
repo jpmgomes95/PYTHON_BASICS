@@ -2,4 +2,4 @@ nome = "Nico"
 sobrenome = "Steppat"
 print(nome + sobrenome)
 
-#SAÍDA JUNTA, UMA VEZ QUE NÃO TEMOS SEPARADOR
+#the output is not splited once there is'nt the sep command
