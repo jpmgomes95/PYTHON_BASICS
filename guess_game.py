@@ -4,9 +4,10 @@ print("*****************************************")
 
 numero_secreto = 42
 total_de_tentativas = 3
+rodada = 1
 
-while (total_de_tentativas > 0):
-    print("Você possui", total_de_tentativas,"tentativa(s) restante(s)")
+while (rodada <= total_de_tentativas):
+    print("Tentativa {} de {}".format(rodada, total_de_tentativas))
     chute_str = input("Digite o seu número: ") #As the input returns only strings you have to use a function to change its type
 
     print ("Você digitou : ", chute_str,)
@@ -18,14 +19,13 @@ while (total_de_tentativas > 0):
     menor   =   chute < numero_secreto
 
     if(acertou):
-        total_de_tentativas = total_de_tentativas -3
         print("Você acertou o número secreto !")
     else:
-        total_de_tentativas = total_de_tentativas -1
         if(maior):
-             print("Você errou o número secreto,tente um número menor.")
+             print("Você errou o número secreto, você chutou um número grande de mais.")
         elif(menor):
-             print("Você errou o número secreto,tente um número maior.")
+             print("Você errou o número secreto, você chutou um número pequeno de mais")
 
+    rodada = rodada + 1
 
 print("Fim do jogo")
