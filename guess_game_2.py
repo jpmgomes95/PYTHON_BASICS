@@ -5,8 +5,24 @@ print("Welcome to the guessing game") #initial test of python and pycharm
 print("*****************************************")
 
 numero_secreto = random.randrange(1,101) #Created a secret number, so every game should be unique
-total_de_tentativas = 3
-rodada = 1
+total_de_tentativas = 0
+pontos = 1000
+
+print("Qual o nível de dificuldade ?")
+print("(1)  Fácil   (2)  Médio   (3)  Difícil")
+
+nivel = int(input("Escreva o número do nível: "))
+
+
+
+if (nivel == 1):
+    total_de_tentativas = 20
+elif (nivel == 2):
+    total_de_tentativas = 10
+elif (nivel == 3):
+    total_de_tentativas =  5
+else:
+    print("Você não digitou um nível válido")
 
 
 for rodada in range(1, total_de_tentativas +1):
@@ -24,7 +40,7 @@ for rodada in range(1, total_de_tentativas +1):
     menor   =   chute < numero_secreto
 
     if(acertou):
-        print("Você acertou o número secreto !")
+        print("Você acertou o número secreto e fez {} pontos!".format(pontos))
         break #If the user guess the number, the game finishes instatly
     else:
         if(maior):
@@ -32,5 +48,7 @@ for rodada in range(1, total_de_tentativas +1):
         elif(menor):
              print("Você errou o número secreto, você chutou um número pequeno de mais")
 
+       pontos_perdidos = abs(numero_secreto - chute)
+        pontos = pontos - pontos_perdidos
 
-print("Fim do jogo")
+print("Fim do jogo, você fez {} pontos !".format(pontos))
