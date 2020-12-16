@@ -21,9 +21,6 @@ elif (nivel == 2):
     total_de_tentativas = 10
 elif (nivel == 3):
     total_de_tentativas =  5
-else:
-    print("Você não digitou um nível válido")
-
 
 for rodada in range(1, total_de_tentativas +1):
     print("Tentativa {} de {}".format(rodada, total_de_tentativas))
@@ -48,7 +45,7 @@ for rodada in range(1, total_de_tentativas +1):
         elif(menor):
              print("Você errou o número secreto, você chutou um número pequeno de mais")
 
-       pontos_perdidos = abs(numero_secreto - chute)
+        pontos_perdidos = abs( chute - numero_secreto )
         pontos = pontos - pontos_perdidos
 
 print("Fim do jogo, você fez {} pontos !".format(pontos))
