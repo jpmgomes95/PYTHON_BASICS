@@ -1,15 +1,18 @@
+import random
+
 print("*****************************************")
 print("Welcome to the guessing game") #initial test of python and pycharm
 print("*****************************************")
 
-numero_secreto = 42
+numero_secreto = random.randrange(1,101) #Created a secret number, so every game should be unique
 total_de_tentativas = 3
 rodada = 1
+
 
 for rodada in range(1, total_de_tentativas +1):
     print("Tentativa {} de {}".format(rodada, total_de_tentativas))
     chute_str = input("Digite um número entre 1 e 100: ") #As the input returns only strings you have to use a function to change its type
-    print ("Você digitou : ", chute_str,)
+    print("Você digitou : ", chute_str,)
     chute = int(chute_str) #Right here i used the function that changes the input to an int type
 
     if(chute <1 or chute >100):
