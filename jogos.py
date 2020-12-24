@@ -2,14 +2,14 @@
 import forca
 import guess_game_2
 
-def game_choice():
+def play():
     print("*****************************************")
     print("**************Choose a game**************") #initial test of python and pycharm
     print("*****************************************")
 
     print("(1) Guess Game     (2) Hangman")
 
-    jogo = int(input("Qual jogo ?"))
+    jogo = int(input("Type the number of the game: "))
 
     if (jogo == 1):
         print("Starting Guess Game")
@@ -19,4 +19,4 @@ def game_choice():
         forca.play()
 
 if (__name__ == "main"):
-    game_choice()
+    play()
