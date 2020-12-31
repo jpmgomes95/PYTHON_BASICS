@@ -1,29 +1,57 @@
+import  random
+
 def  play():
     print("*****************************************")
     print("Welcome to the Hangman") #initial test of python and pycharm
     print("*****************************************")
 
-    secret_word = "banana"
+    file = open("words.txt", "r")
+
+    list_words= []
+
+    for line in file:
+        line = line.strip().upper()
+        list_words.append(line)
+
+    file.close()
+
+    number = random.randrange(0,len(list_words))
+    secret_word = list_words[number].upper()
+
+    correct_letters = ["_" for letter in secret_word]
+
     hanged = False
-    miss = False
+    right = False
+    mistakes = 0
 
     secret_word = secret_word.strip()
 
-    while( not hanged and not miss ):
+    while( not hanged and not right ):
 
         guess =  input("Say a letter: ")
-        guess = guess.strip()
+        guess = guess.strip().upper()
 
-        index = 0
+        if (guess in secret_word):
+            index = 0
+            for letter in secret_word :
+                if (guess == letter):
+                    print("Congratulations you hit the letter {} in position {} ".format(guess, index))
+                    correct_letters[index] = guess
 
-        for letter in secret_word :
-            if (guess.lower() == letter.lower()):
-                print("Congratulations you hit the letter {} in position {} ".format(guess, index))
-            index = index + 1
+                index += 1
+        else:
+            print("You have mistaken, there is'nt  {}, in this secret letter".format(guess))
+            mistakes +=1
 
+        hanged = mistakes == 6
+        right = "_" not in correct_letters
+        print(correct_letters)
 
+    if(right):
+        print("Congratulations you finished the game!")
+    else:
+        print("You lost the game")
 
-    print("End game")
 
 if(__name__== "__main__"):
     play()
