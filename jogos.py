@@ -2,19 +2,22 @@
 import forca
 import guess_game_2
 
+def play():
 
-print("*****************************************")
-print("**************Choose a game**************") #initial test of python and pycharm
-print("*****************************************")
+    print("*****************************************")
+    print("**************Choose a game**************") #initial test of python and pycharm
+    print("*****************************************")
 
-print("(1) Guess Game     (2) Hangman")
+    print("(1) Guess Game     (2) Hangman")
 
-jogo = int(input("Type the number of the game: "))
+    jogo = int(input("Type the number of the game: "))
 
-if (jogo == 1):
-    print("Starting Guess Game")
-    guess_game_2.play()
-elif(jogo == 2):
-     print("Starting Hangman")
-     forca.play()
+    if (jogo == 1):
+        print("Starting Guess Game")
+        guess_game_2.play()
+    elif(jogo == 2):
+         print("Starting Hangman")
+         forca.play()
 
+if(__name__== "__main__"):
+    play()

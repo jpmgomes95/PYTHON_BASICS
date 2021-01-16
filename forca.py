@@ -6,13 +6,11 @@ def  play():
     secret_word = load_secret_word()
     correct_letters = load_corretct_letters(secret_word)
 
-
     hanged = False
     right = False
     mistakes = 0
 
     secret_word = secret_word.strip()
-
 
     while( not hanged and not right ):
         guess = ask_the_gues()
@@ -28,9 +26,9 @@ def  play():
         print(correct_letters)
 
     if(right):
-        print("Congratulations you finished the game!")
+       print_won()
     else:
-        print("You lost the game")
+        print_loose()
 
 def opening_message():
     print("*****************************************")
@@ -72,6 +70,11 @@ def score_right_guess(guess,correct_letters,secret_word):
         index += 1
 
 
+def print_won():
+    print("Congratulations you won the game!")
+
+def print_loose():
+    print("You Loose")
 
 if(__name__== "__main__"):
     play()
