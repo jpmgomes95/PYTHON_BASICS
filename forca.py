@@ -1,13 +1,15 @@
 import  random
 
-def  play():
+def opening_message():
     print("*****************************************")
-    print("Welcome to the Hangman") #initial test of python and pycharm
+    print("Welcome to the Hangman")  # initial test of python and pycharm
     print("*****************************************")
 
+
+def load_secret_word():
     file = open("words.txt", "r")
 
-    list_words= []
+    list_words = []
 
     for line in file:
         line = line.strip().upper()
@@ -15,10 +17,20 @@ def  play():
 
     file.close()
 
-    number = random.randrange(0,len(list_words))
+    number = random.randrange(0, len(list_words))
     secret_word = list_words[number].upper()
+    return secret_word
 
-    correct_letters = ["_" for letter in secret_word]
+
+def load_corretct_letters(word):
+    return ["_" for letter in word]
+
+def  play():
+
+    opening_message()
+    secret_word = load_secret_word()
+    correct_letters = load_corretct_letters(secret_word)
+
 
     hanged = False
     right = False
@@ -26,8 +38,8 @@ def  play():
 
     secret_word = secret_word.strip()
 
-    while( not hanged and not right ):
 
+    while( not hanged and not right ):
         guess =  input("Say a letter: ")
         guess = guess.strip().upper()
 
@@ -43,7 +55,7 @@ def  play():
             print("You have mistaken, there is'nt  {}, in this secret letter".format(guess))
             mistakes +=1
 
-        hanged = mistakes == 6
+        hanged = mistakes == len(secret_word)
         right = "_" not in correct_letters
         print(correct_letters)
 
@@ -55,3 +67,5 @@ def  play():
 
 if(__name__== "__main__"):
     play()
+
+
