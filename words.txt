@@ -1,4 +1,10 @@
-maca
-morango
-manga
+apple
+mango
+strawberry
 banana
+peach
+grape
+plum
+orange
+raspberry
+count fruit
