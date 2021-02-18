@@ -20,15 +20,16 @@ def  play():
         else:
             print("You have mistaken, there is'nt  {}, in this secret letter".format(guess))
             mistakes +=1
+            draw_gallow(mistakes)
 
-        hanged = mistakes == len(secret_word)
+        hanged = mistakes == 7
         right = "_" not in correct_letters
         print(correct_letters)
 
     if(right):
        print_won()
     else:
-        print_loose()
+        print_loose(secret_word)
 
 def opening_message():
     print("*****************************************")
@@ -71,10 +72,92 @@ def score_right_guess(guess,correct_letters,secret_word):
 
 
 def print_won():
-    print("Congratulations you won the game!")
+    print("Congratulations ! You Won ")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
 
-def print_loose():
-    print("You Loose")
+def print_loose(secret_word):
+    print("You loose!")
+    print("The word was {}".format(secret_word))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
+
+
+def draw_gallow(mistakes):
+
+        print("  _______     ")
+        print(" |/      |    ")
+
+        if (mistakes == 1):
+            print(" |      (_)   ")
+            print(" |            ")
+            print(" |            ")
+            print(" |            ")
+
+        if (mistakes == 2):
+            print(" |      (_)   ")
+            print(" |      \     ")
+            print(" |            ")
+            print(" |            ")
+
+        if (mistakes == 3):
+            print(" |      (_)   ")
+            print(" |      \|    ")
+            print(" |            ")
+            print(" |            ")
+
+        if (mistakes == 4):
+            print(" |      (_)   ")
+            print(" |      \|/   ")
+            print(" |            ")
+            print(" |            ")
+
+        if (mistakes == 5):
+            print(" |      (_)   ")
+            print(" |      \|/   ")
+            print(" |       |    ")
+            print(" |            ")
+
+        if (mistakes == 6):
+            print(" |      (_)   ")
+            print(" |      \|/   ")
+            print(" |       |    ")
+            print(" |      /     ")
+
+        if (mistakes == 7):
+            print(" |      (_)   ")
+            print(" |      \|/   ")
+            print(" |       |    ")
+            print(" |      / \   ")
+
+        print(" |            ")
+        print("_|___         ")
+        print()
+
+
+
 
 if(__name__== "__main__"):
     play()
